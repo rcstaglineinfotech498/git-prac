@@ -1,0 +1,18 @@
+export const faqs = [
+  {
+    question: 'What types of projects do you take on?',
+    answer: 'We work across residential, commercial, interior, landscape and selected urban projects. Our studio is a good fit for considered new builds, renovations and place-making work.',
+  },
+  {
+    question: 'When should I get in touch?',
+    answer: 'As early as possible. An initial conversation can help clarify the brief, site opportunities, likely approvals and a realistic project pathway.',
+  },
+  {
+    question: 'Do you manage construction?',
+    answer: 'Yes. We can remain involved through construction, answering design queries, reviewing key details and helping ensure the built work reflects the agreed design.',
+  },
+  {
+    question: 'How do your fees work?',
+    answer: 'Fees are tailored to the project scope and the services you need. After an initial discussion, we provide a clear proposal with stages, deliverables and fees.',
+  },
+];
