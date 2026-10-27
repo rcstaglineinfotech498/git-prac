@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 const ThemeContext = createContext(null);
-const themes = ['a', 'b', 'c', 'd', 'e'];
 
 function readStorage(key, fallback) {
   try {
@@ -24,23 +23,20 @@ function writeStorage(key, value) {
 }
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(() => readStorage('atelier-theme', 'a'));
-  const [mode, setMode] = useState(() => readStorage('atelier-mode', 'light'));
+  const [mode, setMode] = useState(() => {
+    const savedMode = readStorage('atelier-mode', 'light');
+    return savedMode === 'dark' ? 'dark' : 'light';
+  });
 
   useEffect(() => {
-    document.documentElement.dataset.theme = theme;
     document.documentElement.dataset.mode = mode;
-    writeStorage('atelier-theme', theme);
     writeStorage('atelier-mode', mode);
-  }, [theme, mode]);
+  }, [mode]);
 
   const value = useMemo(() => ({
-    theme,
     mode,
-    themes,
-    setTheme: (next) => setTheme(themes.includes(next) ? next : 'a'),
     toggleMode: () => setMode((current) => current === 'light' ? 'dark' : 'light'),
-  }), [theme, mode]);
+  }), [mode]);
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }

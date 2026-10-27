@@ -14,7 +14,6 @@ const links = [
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const transparentHeader = location.pathname === '/'
@@ -25,19 +24,16 @@ function Header() {
 
   useEffect(() => {
     setMenuOpen(false);
-    let previous = window.scrollY;
     const onScroll = () => {
-      const current = window.scrollY;
-      setScrolled(current > 40);
-      setHidden(current > 180 && current > previous && !menuOpen);
-      previous = current;
+      setScrolled(window.scrollY > 40);
     };
+    onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, [location.pathname, menuOpen]);
+  }, [location.pathname]);
 
   return (
-    <header className={`site-header ${scrolled || !transparentHeader ? 'is-scrolled' : ''} ${hidden ? 'is-hidden' : ''}`}>
+    <header className={`site-header ${scrolled || !transparentHeader ? 'is-scrolled' : ''}`}>
       <div className="header-inner container">
         <Link to="/" className="brand" aria-label="Atelier home"><span className="brand-mark">A.</span><span className="brand-name">ATELIER<span>ARCHITECTURE & DESIGN</span></span></Link>
         <nav className="desktop-nav" aria-label="Main navigation">
@@ -87,13 +83,12 @@ function Footer() {
 }
 
 function ThemeDock() {
-  const { theme, mode, themes, setTheme, toggleMode } = useTheme();
+  const { mode, toggleMode } = useTheme();
   return (
     <aside className="theme-dock" aria-label="Appearance settings">
-      <div className="theme-swatches" aria-label="Colour palette">
-        {themes.map((name) => <button key={name} className={`theme-swatch theme-swatch-${name} ${theme === name ? 'selected' : ''}`} onClick={() => setTheme(name)} aria-label={`Preview palette ${name.toUpperCase()}`} aria-pressed={theme === name} />)}
-      </div>
-      <button className="mode-toggle" onClick={toggleMode} aria-label={`Switch to ${mode === 'light' ? 'dark' : 'light'} mode`}>{mode === 'light' ? <FiMoon /> : <FiSun />}</button>
+      <button className="mode-toggle" onClick={toggleMode} aria-label={`Switch to ${mode === 'light' ? 'dark' : 'light'} mode`}>
+        {mode === 'light' ? <FiMoon /> : <FiSun />}
+      </button>
     </aside>
   );
 }

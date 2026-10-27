@@ -196,7 +196,7 @@ function FeaturedProjects() {
       project.featured && (filter === "All" || project.category === filter),
   );
   return (
-    <section className="section projects-section">
+    <section className="section projects-section home-projects-section">
       <div className="container">
         <div className="split-heading">
           <SectionHeading
@@ -225,7 +225,7 @@ function FeaturedProjects() {
         </div>
         <div className="projects-grid">
           {shown.map((project, index) => (
-            <ProjectCard key={project.slug} project={project} index={index} />
+            <ProjectCard key={project.slug} project={project} index={index} showExcerpt />
           ))}
         </div>
         <Link className="text-link mobile-only" to="/projects">

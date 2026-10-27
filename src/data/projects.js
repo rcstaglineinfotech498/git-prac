@@ -87,6 +87,7 @@ export const projects = [
       "The existing narrow tenancy needed to welcome both intimate dining and lively shared occasions.",
     solution:
       "A continuous timber element anchors the plan and guides guests from the street through a sequence of dining spaces.",
+    featured: true,
   },
   {
     slug: "greenline-house",
