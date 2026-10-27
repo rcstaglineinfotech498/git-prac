@@ -12,7 +12,7 @@ export const projects = [
     status: "Completed",
     architects: "Mara Ellis, Theo Park",
     image: images.projectHouse,
-    gallery: [images.projectHouse, images.projectHouse2, images.projectGallery],
+    gallery: [images.projectHouseGallery1, images.projectHouseGallery2],
     excerpt:
       "A quiet family home shaped around light, landscape and the rituals of everyday life.",
     overview:
@@ -34,7 +34,7 @@ export const projects = [
     status: "Completed",
     architects: "Theo Park, Lina Moreau",
     image: images.projectOffice,
-    gallery: [images.projectOffice, images.projectInterior],
+    gallery: [images.projectOfficeGallery1, images.projectOfficeGallery2],
     excerpt:
       "A generous workplace designed to make room for focus, exchange and new ideas.",
     overview:
@@ -56,7 +56,7 @@ export const projects = [
     status: "Completed",
     architects: "Mara Ellis",
     image: images.projectGarden,
-    gallery: [images.projectGarden, images.projectHouse2],
+    gallery: [images.projectGardenGallery1, images.projectGardenGallery2],
     excerpt:
       "A low-impact retreat that borrows its quiet character from the surrounding bushland.",
     overview:
@@ -78,7 +78,7 @@ export const projects = [
     status: "Completed",
     architects: "Lina Moreau",
     image: images.projectInterior,
-    gallery: [images.projectInterior, images.detail],
+    gallery: [images.projectInteriorGallery1, images.projectInteriorGallery2],
     excerpt:
       "An intimate restaurant interior built around the simple pleasure of gathering.",
     overview:
@@ -99,8 +99,8 @@ export const projects = [
     client: "Greenline Foundation",
     status: "Completed",
     architects: "Mara Ellis, Theo Park",
-    image: images.projectGarden,
-    gallery: [images.projectGarden, images.projectHouse],
+    image: images.projectGreenline,
+    gallery: [images.projectGreenlineGallery1, images.projectGreenlineGallery2],
     excerpt:
       "A garden-led renewal that reconnects a much-loved home with its leafy setting.",
     overview:
@@ -122,11 +122,11 @@ export const projects = [
     architects: "Theo Park",
     renovation: true,
     beforeAfter: {
-      before: images.projectInterior,
-      after: images.projectHouse2,
+      before: images.projectHarbourBefore,
+      after: images.projectHarbourAfter,
     },
-    image: images.projectHouse2,
-    gallery: [images.projectHouse2, images.projectGallery],
+    image: images.projectHarbour,
+    gallery: [images.projectHarbourGallery1, images.projectHarbourGallery2],
     excerpt:
       "A measured renovation that opens a heritage home to its harbour outlook.",
     overview:

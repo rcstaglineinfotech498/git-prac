@@ -16,5 +16,188 @@ const milestones = [
 ];
 
 export default function About() {
-  return <><SEO title="About Our Studio" description="Meet Atelier, an independent architecture studio committed to thoughtful, enduring places."/><PageBanner eyebrow="Our studio" title="A practice shaped by curiosity." intro="We believe the best places are generous, grounded and made with care." image={images.studio}/><section className="section story-section"><div className="container story-grid"><div className="story-image"><img src={images.introDetail} alt="Quiet interior in a light-filled Atelier project" loading="lazy"/></div><div className="story-copy"><p className="eyebrow">A little about us</p><h2>Design is a conversation with <em>place.</em></h2><p>Atelier is an independent architecture and design practice based in Sydney. We work across architecture, interiors and landscape, bringing a curious eye and a steady hand to projects of every scale.</p><p>Our approach is collaborative and considered. We take time to understand the people, context and possibilities that make each project unique — then turn that understanding into places built to be lived in, cared for and remembered.</p><div className="mission-vision"><div><span>Our mission</span><p>To make lasting places that improve everyday life and belong to their setting.</p></div><div><span>Our vision</span><p>A built environment shaped by care, craft and a lighter footprint.</p></div></div></div></div></section><section className="values-section"><div className="container"><SectionHeading eyebrow="What guides us" title="Values made visible."/><div className="values-grid">{[['01','Listen first','We begin with curiosity and make space for every voice at the table.'],['02','Work with place','We respond to local character, climate, culture and landscape.'],['03','Choose with care','We value enduring materials and decisions that make sense over time.'],['04','Stay generous','We approach each collaboration with openness, clarity and respect.']].map(([n,title,text])=><article key={n}><span>{n}</span><h3>{title}</h3><p>{text}</p></article>)}</div></div></section><section className="section milestones-section"><div className="container milestones-grid"><SectionHeading eyebrow="Our story" title="A practice in progress." text="Built one conversation, one collaboration and one place at a time."/><div className="timeline">{milestones.map(([year,title,text])=><article key={year}><span>{year}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></div></section><section className="about-stats"><div className="container stats-grid">{stats.map((item)=><div className="stat-item" key={item.label}><span className="stat-value"><CountUp end={item.value} duration={2.1} enableScrollSpy scrollSpyOnce/>{item.suffix}</span><span>{item.label}</span></div>)}</div></section><section className="section team-section"><div className="container"><SectionHeading eyebrow="The people behind the work" title="A close-knit team, curious by nature." text="Different perspectives, shared commitment to making spaces matter."/><div className="team-grid">{team.map((person)=><article className="team-card" key={person.name}><div className="team-photo"><img src={person.image} alt={person.name} loading="lazy"/><div className="team-social"><a href="https://linkedin.com" aria-label={`${person.name} on LinkedIn`}><FiLinkedin/></a><a href="https://instagram.com" aria-label={`${person.name} on Instagram`}><FiInstagram/></a></div></div><div className="team-meta"><h3>{person.name}</h3><span>{person.role}</span></div><p>{person.bio}</p></article>)}</div></div></section><section className="recognition-section"><div className="container recognition-grid"><SectionHeading eyebrow="Recognition" title="Quiet work, noticed." text="We are grateful for the recognition and, above all, the people and teams behind the work."/><div className="recognition-list">{awards.map((award,index)=><div key={award}><span>{String(2025-index).slice(2)}</span><strong>{award}</strong><span>Selected projects</span></div>)}</div></div></section><section className="studio-gallery"><img src={images.studio} alt="Atelier studio: a shared workspace for the design team" loading="lazy"/><p>Good work is a team effort. A view into our Sydney studio.</p></section><section className="small-cta"><div className="container"><p>Let’s make something meaningful.</p><Link to="/contact">Meet us and tell us about your project <FiArrowUpRight/></Link></div></section></>;
+  return (
+    <>
+      <SEO
+        title="About Our Studio"
+        description="Meet Atelier, an independent architecture studio committed to thoughtful, enduring places."
+      />
+      <PageBanner
+        eyebrow="Our studio"
+        title="A practice shaped by curiosity."
+        intro="We believe the best places are generous, grounded and made with care."
+        image={images.studio}
+      />
+      <section className="section story-section">
+        <div className="container story-grid">
+          <div className="story-image">
+            <img
+              src={images.aboutStory}
+              alt="A light-filled contemporary living room"
+              loading="lazy"
+            />
+          </div>
+          <div className="story-copy">
+            <p className="eyebrow">A little about us</p>
+            <h2>
+              Design is a conversation with <em>place.</em>
+            </h2>
+            <p>
+              Atelier is an independent architecture and design practice based
+              in Sydney. We work across architecture, interiors and landscape,
+              bringing a curious eye and a steady hand to projects of every
+              scale.
+            </p>
+            <p>
+              Our approach is collaborative and considered. We take time to
+              understand the people, context and possibilities that make each
+              project unique — then turn that understanding into places built
+              to be lived in, cared for and remembered.
+            </p>
+            <div className="mission-vision">
+              <div>
+                <span>Our mission</span>
+                <p>
+                  To make lasting places that improve everyday life and belong
+                  to their setting.
+                </p>
+              </div>
+              <div>
+                <span>Our vision</span>
+                <p>
+                  A built environment shaped by care, craft and a lighter
+                  footprint.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="values-section">
+        <div className="container">
+          <SectionHeading eyebrow="What guides us" title="Values made visible." />
+          <div className="values-grid">
+            {[
+              ["01", "Listen first", "We begin with curiosity and make space for every voice at the table."],
+              ["02", "Work with place", "We respond to local character, climate, culture and landscape."],
+              ["03", "Choose with care", "We value enduring materials and decisions that make sense over time."],
+              ["04", "Stay generous", "We approach each collaboration with openness, clarity and respect."],
+            ].map(([number, title, text]) => (
+              <article key={number}>
+                <span>{number}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="section milestones-section">
+        <div className="container milestones-grid">
+          <SectionHeading
+            eyebrow="Our story"
+            title="A practice in progress."
+            text="Built one conversation, one collaboration and one place at a time."
+          />
+          <div className="timeline">
+            {milestones.map(([year, title, text]) => (
+              <article key={year}>
+                <span>{year}</span>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="about-stats">
+        <div className="container stats-grid">
+          {stats.map((item) => (
+            <div className="stat-item" key={item.label}>
+              <span className="stat-value">
+                <CountUp
+                  end={item.value}
+                  duration={2.1}
+                  enableScrollSpy
+                  scrollSpyOnce
+                />
+                {item.suffix}
+              </span>
+              <span>{item.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="section team-section">
+        <div className="container">
+          <SectionHeading
+            eyebrow="The people behind the work"
+            title="A close-knit team, curious by nature."
+            text="Different perspectives, shared commitment to making spaces matter."
+          />
+          <div className="team-grid">
+            {team.map((person) => (
+              <article className="team-card" key={person.name}>
+                <div className="team-meta">
+                  <h3>{person.name}</h3>
+                  <span>{person.role}</span>
+                </div>
+                <p>{person.bio}</p>
+                <div className="team-social">
+                  <a
+                    href="https://linkedin.com"
+                    aria-label={`${person.name} on LinkedIn`}
+                  >
+                    <FiLinkedin />
+                  </a>
+                  <a
+                    href="https://instagram.com"
+                    aria-label={`${person.name} on Instagram`}
+                  >
+                    <FiInstagram />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="recognition-section">
+        <div className="container recognition-grid">
+          <SectionHeading
+            eyebrow="Recognition"
+            title="Quiet work, noticed."
+            text="We are grateful for the recognition and, above all, the people and teams behind the work."
+          />
+          <div className="recognition-list">
+            {awards.map((award, index) => (
+              <div key={award}>
+                <span>{String(2025 - index).slice(2)}</span>
+                <strong>{award}</strong>
+                <span>Selected projects</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="studio-gallery">
+        <img
+          src={images.aboutGallery}
+          alt="Contemporary residential architecture with generous windows"
+          loading="lazy"
+        />
+        <p>Homes shaped by their setting.</p>
+      </section>
+      <section className="small-cta">
+        <div className="container">
+          <p>Let’s make something meaningful.</p>
+          <Link to="/contact">
+            Meet us and tell us about your project <FiArrowUpRight />
+          </Link>
+        </div>
+      </section>
+    </>
+  );
 }

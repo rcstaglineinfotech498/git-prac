@@ -58,7 +58,7 @@ export const blogs = [
     isoDate: '2025-04-22',
     readTime: '5 min read',
     author: 'Mara Ellis',
-    image: images.projectInterior,
+    image: images.blogFour,
     excerpt: 'Materials become more meaningful when they are chosen to age alongside the people who use them.',
     body: [
       'We are drawn to materials that become more beautiful through use. Timber gathers marks, stone changes subtly with the light and metal takes on a patina that records the life around it.',
@@ -74,7 +74,7 @@ export const blogs = [
     isoDate: '2025-03-09',
     readTime: '4 min read',
     author: 'Lina Moreau',
-    image: images.projectGarden,
+    image: images.blogFive,
     excerpt: 'A planted edge can soften the boundary between home and landscape, and make a welcome of its own.',
     body: [
       'A garden does not begin at the back fence. Even a small planted threshold can change the way a building meets the street, frames an arrival and welcomes wildlife into the everyday.',
@@ -90,7 +90,7 @@ export const blogs = [
     isoDate: '2025-01-17',
     readTime: '3 min read',
     author: 'Theo Park',
-    image: images.blogThree,
+    image: images.blogSix,
     excerpt: 'The strongest briefs leave room for discovery while keeping sight of what matters most.',
     body: [
       'A good brief is not a list of rooms. It is a shared understanding of what a project should make possible and how it should feel to inhabit.',

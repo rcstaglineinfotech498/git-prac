@@ -36,7 +36,7 @@ function Hero() {
         autoplay={{ delay: 6500, disableOnInteraction: false }}
         loop
       >
-        {[images.hero, images.projectHouse, images.projectGarden].map(
+        {[images.hero, images.heroHome, images.heroApartment].map(
           (image, index) => {
             const Heading = index === 0 ? "h1" : "h2";
             return (
@@ -116,13 +116,13 @@ function Intro() {
           <img
             className="intro-main-image"
             src={images.intro}
-            alt="Sunlit contemporary living room with natural materials"
+            alt="Bright contemporary living room in an architect-designed home"
             loading="lazy"
           />
           <img
             className="intro-overlap-image"
             src={images.introDetail}
-            alt="Detail of warm timber and stone interior"
+            alt="Warm timber kitchen opening into a modern home"
             loading="lazy"
           />
           <span className="collage-label">Spaces that bring us closer</span>
@@ -266,11 +266,11 @@ function WhyUs() {
       <div className="container why-grid">
         <div className="why-image">
           <img
-            src={images.studio}
-            alt="Atelier studio workspace"
+            src={images.homeFeature}
+            alt="Contemporary waterfront home set within its landscape"
             loading="lazy"
           />
-          <span>Our studio, Sydney</span>
+          <span>Homes shaped by their setting</span>
         </div>
         <div className="why-content">
           <SectionHeading
@@ -322,7 +322,6 @@ function Testimonials() {
                 <span className="quote-mark">“</span>
                 <blockquote>{item.quote}</blockquote>
                 <div className="testimonial-person">
-                  <img src={item.image} alt="" loading="lazy" />
                   <div>
                     <strong>{item.name}</strong>
                     <span>{item.role}</span>
@@ -472,7 +471,7 @@ function CTA() {
   return (
     <section
       className="cta-banner"
-      style={{ "--banner-image": `url("${images.hero}")` }}
+      style={{ "--banner-image": `url("${images.homeCta}")` }}
     >
       <div className="container cta-content">
         <p className="eyebrow">Have a place in mind?</p>

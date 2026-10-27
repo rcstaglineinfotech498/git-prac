@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import images from '../../data/images.js';
 
 export default function SEO({ title, description }) {
   const pageTitle = title ? `${title} — Atelier` : 'Atelier — Architecture & Design';
@@ -19,7 +20,7 @@ export default function SEO({ title, description }) {
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={summary} />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85" />
+      <meta property="og:image" content={images.hero} />
     </Helmet>
   );
 }
