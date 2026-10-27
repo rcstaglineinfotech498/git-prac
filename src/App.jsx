@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "./context/ThemeContext.jsx";
@@ -27,7 +27,6 @@ export default function App() {
   return (
     <HelmetProvider>
       <ThemeProvider>
-        <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <Preloader />
           <SiteLayout>
             <Suspense fallback={<RouteLoader />}>
@@ -44,7 +43,6 @@ export default function App() {
             </Suspense>
           </SiteLayout>
           <Toaster position="top-right" toastOptions={{ duration: 4000 }} />
-        </BrowserRouter>
       </ThemeProvider>
     </HelmetProvider>
   );
