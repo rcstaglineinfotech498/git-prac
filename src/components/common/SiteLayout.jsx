@@ -12,8 +12,7 @@ const links = [
   ['Contact', '/contact'],
 ];
 
-function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
+function Header({ menuOpen, setMenuOpen }) {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const transparentHeader = location.pathname === '/'
@@ -130,6 +129,7 @@ function CookieBanner() {
 export default function SiteLayout({ children }) {
   const [progress, setProgress] = useState(0);
   const [showTop, setShowTop] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -150,7 +150,21 @@ export default function SiteLayout({ children }) {
   return <>
     <div className="scroll-progress" style={{ width: `${progress}%` }} />
     <a className="skip-link" href="#main-content">Skip to content</a>
-    <Header />
+    <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+    <AnimatePresence>
+      {menuOpen && (
+        <motion.button
+          className="mobile-nav-backdrop"
+          type="button"
+          aria-label="Close navigation menu"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          onClick={() => setMenuOpen(false)}
+        />
+      )}
+    </AnimatePresence>
     <main id="main-content"><AnimatePresence mode="wait"><motion.div key={location.pathname} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>{children}</motion.div></AnimatePresence></main>
     <Footer />
     <ThemeDock />

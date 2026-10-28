@@ -6,13 +6,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
-import { FiArrowDown, FiArrowUpRight, FiCheck, FiStar } from "react-icons/fi";
+import { FiArrowUpRight, FiCheck, FiStar } from "react-icons/fi";
 import SEO from "../components/common/SEO.jsx";
 import SectionHeading from "../components/common/SectionHeading.jsx";
-import ProjectCard from "../components/common/ProjectCard.jsx";
 import BlogCard from "../components/common/BlogCard.jsx";
 import images from "../data/images.js";
-import { projects } from "../data/projects.js";
 import { blogs } from "../data/blogs.js";
 import {
   awards,
@@ -26,8 +24,23 @@ import { testimonials } from "../data/testimonials.js";
 import { reviewSummary, reviews } from "../data/reviews.js";
 
 function Hero() {
+  const slides = [
+    {
+      image: images.heroHome,
+      lines: ["A more considered", "way to live."],
+    },
+    {
+      image: images.heroApartment,
+      lines: ["Made for living.", "Designed to last."],
+    },
+    {
+      image: images.hero,
+      lines: ["Architecture with", "a sense of place."],
+    },
+  ];
+
   return (
-    <section className="hero">
+    <section className="hero home-hero">
       <Swiper
         className="hero-swiper"
         modules={[Autoplay, EffectFade]}
@@ -36,10 +49,9 @@ function Hero() {
         autoplay={{ delay: 6500, disableOnInteraction: false }}
         loop
       >
-        {[images.hero, images.heroHome, images.heroApartment].map(
-          (image, index) => {
-            const Heading = index === 0 ? "h1" : "h2";
-            return (
+        {slides.map(({ image, lines }, index) => {
+          const Heading = index === 0 ? "h1" : "h2";
+          return (
             <SwiperSlide key={image}>
               <div
                 className="hero-image"
@@ -51,14 +63,8 @@ function Hero() {
                 <p className="eyebrow">
                   Independent architecture studio · Sydney
                 </p>
-                <Heading>
-                  {
-                    [
-                      "Spaces with a sense of belonging.",
-                      "Made for living. Designed to last.",
-                      "A quieter kind of architecture.",
-                    ][index]
-                  }
+                <Heading className="hero-title">
+                  {lines.map((line) => <span key={line}>{line}</span>)}
                 </Heading>
                 <p>
                   We shape thoughtful places for living, working and gathering —
@@ -75,16 +81,8 @@ function Hero() {
               </div>
             </SwiperSlide>
           );
-          },
-        )}
+        })}
       </Swiper>
-      <div className="hero-foot">
-        <span>01 — 03 &nbsp; Architecture / Interiors / Landscape</span>
-        <a href="#intro">
-          <FiArrowDown /> Scroll to explore
-        </a>
-        <span>Sydney · Working everywhere</span>
-      </div>
     </section>
   );
 }
@@ -182,55 +180,60 @@ function Services() {
   );
 }
 
-function FeaturedProjects() {
-  const categories = [
-    "All",
-    "Residential",
-    "Commercial",
-    "Interior",
-    "Landscape",
-  ];
-  const [filter, setFilter] = useState("All");
-  const shown = projects.filter(
-    (project) =>
-      project.featured && (filter === "All" || project.category === filter),
-  );
+function StudioMoments() {
   return (
-    <section className="section projects-section home-projects-section">
+    <section className="section home-story-section">
       <div className="container">
-        <div className="split-heading">
-          <SectionHeading
-            eyebrow="Selected work"
-            title="Places made with purpose."
-            text="A selection of projects shaped by their setting and the people who call them theirs."
-          />
-          <Link className="text-link desktop-only" to="/projects">
-            View all projects <FiArrowUpRight />
-          </Link>
+        <div className="home-story-heading">
+          <div>
+            <p className="eyebrow">The feeling of home</p>
+            <h2>Designed for the life <em>happening inside.</em></h2>
+          </div>
+          <p>
+            The best spaces do more than look beautiful. They make room for
+            slow mornings, shared meals and the little rituals that make a
+            place your own.
+          </p>
         </div>
-        <div
-          className="filter-tabs"
-          role="group"
-          aria-label="Filter featured projects"
-        >
-          {categories.map((category) => (
-            <button
-              key={category}
-              className={filter === category ? "active" : ""}
-              onClick={() => setFilter(category)}
-            >
-              {category}
-            </button>
-          ))}
+        <div className="home-story-grid">
+          <article className="home-story-feature">
+            <img
+              src={images.projectInteriorGallery1}
+              alt="Warm, light-filled interior designed for everyday living"
+              loading="lazy"
+            />
+            <div className="home-story-feature-copy">
+              <span>01 / A PLACE TO PAUSE</span>
+              <h3>Let the light find its way in.</h3>
+            </div>
+          </article>
+          <div className="home-story-notes">
+            <article className="home-story-note">
+              <img
+                src={images.projectGardenGallery2}
+                alt="Lush garden bringing greenery close to the home"
+                loading="lazy"
+              />
+              <div>
+                <span>02 / ROOM TO BREATHE</span>
+                <h3>A softer edge to everyday life.</h3>
+                <p>Green, open spaces that bring the outside a little closer.</p>
+              </div>
+            </article>
+            <article className="home-story-note">
+              <img
+                src={images.projectHarbourGallery2}
+                alt="Natural materials and refined details in a contemporary home"
+                loading="lazy"
+              />
+              <div>
+                <span>03 / MADE TO LAST</span>
+                <h3>Details worth coming back to.</h3>
+                <p>Honest materials, chosen to grow more beautiful with time.</p>
+              </div>
+            </article>
+          </div>
         </div>
-        <div className="projects-grid">
-          {shown.map((project, index) => (
-            <ProjectCard key={project.slug} project={project} index={index} showExcerpt />
-          ))}
-        </div>
-        <Link className="text-link mobile-only" to="/projects">
-          View all projects <FiArrowUpRight />
-        </Link>
       </div>
     </section>
   );
@@ -499,7 +502,7 @@ export default function Home() {
       <Intro />
       <Stats />
       <Services />
-      <FeaturedProjects />
+      <StudioMoments />
       <Process />
       <WhyUs />
       <Testimonials />

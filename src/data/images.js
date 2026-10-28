@@ -10,11 +10,14 @@ export const images = {
   introDetail: photo(7195739, 900),
   homeFeature: photo(20296321, 1600),
   homeCta: photo(4870616, 2000),
-  studio: photo(36394720, 1800),
+  studio:
+    "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2000&q=88",
   aboutStory: photo(34688219, 1200),
   aboutGallery: photo(19344325, 1600),
-  projectsBanner: photo(39485848, 1800),
-  journalBanner: photo(39319453, 1800),
+  projectsBanner:
+    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=88",
+  journalBanner:
+    "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2000&q=88",
   projectHouse: photo(30580640, 1400),
   projectHouseGallery1: photo(11890079, 1200),
   projectHouseGallery2: photo(19541342, 1200),
